@@ -1,4 +1,6 @@
-// 【最终修正版 V3】 - 使用 .trim() 并优化了依赖
+// 【V4 · 探针调试版】
+console.log("\n\n##################################################\n[ModelScope Proxy] 探针：index.js 文件开始被读取...\n##################################################\n\n");
+
 const http = require('http');
 const fs = require('fs').promises;
 const path = require('path');
@@ -73,7 +75,6 @@ async function startProxyServer() {
                     for (const node of Object.values(promptWorkflow)) {
                         if (node.class_type === "KSampler" && node.inputs.positive) {
                             const positiveNodeId = node.inputs.positive[0];
-                            // 【修正】使用 .trim() 而不是 .strip()
                             positivePrompt = promptWorkflow[positiveNodeId].inputs.text.trim(); 
                             break;
                         }
@@ -108,9 +109,8 @@ async function startProxyServer() {
                 imageStream.pipe(res);
             } catch (e) { res.writeHead(404).end(); }
         } else if (req.url === '/ws') {
-             res.writeHead(101).end();
+            res.writeHead(101).end();
         } else {
-            // 对其他所有请求都响应一个简单的OK，防止ST因为找不到其他API而报错
             res.writeHead(200, { 'Content-Type': 'application/json' });
             res.end(JSON.stringify({ status: "ok", message: `ModelScopeProxy is running.` }));
         }
