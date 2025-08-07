@@ -1,0 +1,14 @@
+# ModelScope ComfyUI Proxy 插件配置
+
+# 我们的“假”ComfyUI服务器监听的端口。
+# SillyTavern的SD设置需要指向这个端口。
+listen_port: 18188
+
+# 你的模型范围 API Key。必须以 "Bearer " 开头。
+api_key: "Bearer ms-4da3b13b-90e1-4946-a9bc-fb64e96c79d0"
+
+# 用于图片生成的 Model-Id。
+model_id: "MAILAND/majicflus_v1"
+
+# API 接口的 URL。
+api_url: "https://api-inference.modelscope.cn/v1/images/generations"
