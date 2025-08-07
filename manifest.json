@@ -1,7 +1,8 @@
 {
     "name": "ModelScope ComfyUI Proxy",
+    "main": "index.js",
     "description": "Intercepts ComfyUI API calls and redirects them to the ModelScope cloud generation service. Configure in the Stable Diffusion extension settings.",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "author": "will6868",
     "tags": ["image generation", "api", "proxy", "comfyui", "modelscope"],
     "type": "extension"
